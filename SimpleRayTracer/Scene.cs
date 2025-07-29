@@ -54,9 +54,7 @@ namespace SimpleRayTracer
                 }
             }
 
-            localColor = Vector3.Clamp(localColor, Vector3.Zero, Vector3.One);
-
-            return localColor;
+            return Vector3.Clamp(localColor, Vector3.Zero, Vector3.One);
         }
 
 
