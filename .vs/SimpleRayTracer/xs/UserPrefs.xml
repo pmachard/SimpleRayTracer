@@ -1,4 +1,5 @@
-﻿<Properties>
+﻿<Properties StartupConfiguration="{4D2E6BBF-D88F-4AA8-B98D-0ADE8BF9F29E}|Default">
+  <MonoDevelop.Ide.ItemProperties.SimpleRayTracer PreferredExecutionTarget="MonoDevelop.Default" />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

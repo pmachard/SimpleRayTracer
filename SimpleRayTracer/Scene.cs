@@ -61,7 +61,7 @@ namespace SimpleRayTracer
         public Vector3 Trace(Ray ray, int depth = 0)
         {
             // Ray tracing for a specific ray
- 
+
             if (depth > MaxDepth) return BackgroundColor;
 
             float closestT = float.MaxValue;
