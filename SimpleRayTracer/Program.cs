@@ -26,13 +26,16 @@ namespace SimpleRayTracer
             // Render the scene using multiple parallel ray tracing instances.
             sw = Stopwatch.StartNew();
 
+            // A list of tasks that enables parallel ray tracing on different parts of the image.
             List<Task<ColorRGB[,]>> tasks = new List<Task<ColorRGB[,]>>();
 
+            // Tile properties (16) 
             int maxTileX = 4;
             int maxTileY = 4;
             int maxX = camera.Width / maxTileX;
             int maxY = camera.Height / maxTileY;
 
+            // Creating computation tasks based on each tile's characteristics.
             for (int tileY = 0; tileY < maxTileY; tileY++)
             {
                 for (int tileX = 0; tileX < maxTileX; tileX++)
@@ -44,7 +47,7 @@ namespace SimpleRayTracer
                     tasks.Add(Task.Run(() => ComputeRayTracing( x1, y1, x2, y2, camera, scene)));
                 }
             }
-
+            // Start the computations on all tiles and wait for their completion
             var resultats = await Task.WhenAll(tasks);
 
             // Merge the different images into one
@@ -54,7 +57,7 @@ namespace SimpleRayTracer
 
             // Write image in a file
             WriteImageInFile(image, camera.Width, camera.Height, "output.ppm");
-            // Write // image in a file
+            // Write image in a file
             WriteImageInFile(completeImage , camera.Width, camera.Height, "outputP.ppm");
         }
 
