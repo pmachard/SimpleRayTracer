@@ -1,13 +1,11 @@
-﻿using System;
-using SimpleRayTracer;
-using System.Numerics;
+﻿using System.Numerics;
 
 namespace SimpleRayTracer
 {
     class Plane : IObject3D
     {
-        public Vector3 Origine;
-        public Vector3 Normal;
+        public Vector3 Origine { get; set; }
+        public Vector3 Normal { get; set; }
         public Vector3 Color { get; set; }
         public float Reflectivity { get; set; }
 
@@ -34,8 +32,8 @@ namespace SimpleRayTracer
 
         public Vector3 GetColor(Vector3 point)
         {
-            int x = (int)Math.Floor(point.X + 10);
-            int z = (int)Math.Floor(point.Z + 10);
+            int x = (int)Math.Floor(point.X + 10f);
+            int z = (int)Math.Floor(point.Z + 10f);
             bool isWhite = (x + z) % 2 == 0;
             return isWhite ? new Vector3(1, 1, 1) : Color;
         }

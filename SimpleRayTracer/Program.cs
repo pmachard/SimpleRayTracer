@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using System.Numerics;
+﻿using System.Numerics;
 using System.Diagnostics;
 
 namespace SimpleRayTracer
@@ -55,10 +54,13 @@ namespace SimpleRayTracer
             sw.Stop();
             Console.WriteLine($"Compute // raytracing : {sw.ElapsedMilliseconds} ms");
 
+            sw = Stopwatch.StartNew();
             // Write image in a file
             WriteImageInFile(image, camera.Width, camera.Height, "output.ppm");
-            // Write image in a file
+            // Write parallel processing image in a file
             WriteImageInFile(completeImage , camera.Width, camera.Height, "outputP.ppm");
+            sw.Stop();
+            Console.WriteLine($"Write 2 files : {sw.ElapsedMilliseconds} ms");
         }
 
         static Scene InitScene()

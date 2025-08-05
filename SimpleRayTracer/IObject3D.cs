@@ -1,6 +1,4 @@
-﻿using System;
-using System.Numerics;
-using SimpleRayTracer;
+﻿using System.Numerics;
 
 namespace SimpleRayTracer
 {

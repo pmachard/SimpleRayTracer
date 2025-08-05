@@ -1,9 +1,5 @@
-﻿using System;
-using System.Drawing;
-using System.Numerics;
-using Microsoft.VisualBasic;
-using System.Security.Principal;
-using System.Xml.Linq;
+﻿using System.Numerics;
+
 
 namespace SimpleRayTracer
 {

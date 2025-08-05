@@ -1,6 +1,4 @@
-﻿// Ajout d'un cylindre au moteur de ray tracing existant
-using System;
-using System.Numerics;
+﻿using System.Numerics;
 
 namespace SimpleRayTracer
 {

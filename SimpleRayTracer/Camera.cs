@@ -1,6 +1,4 @@
-﻿using System;
-using System.Numerics;
-using static System.Formats.Asn1.AsnWriter;
+﻿using System.Numerics;
 
 namespace SimpleRayTracer
 {
