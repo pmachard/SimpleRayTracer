@@ -4,16 +4,16 @@ namespace SimpleRayTracer
 {
 	public struct ColorRGB
 	{
-        public int R { get; set; }
-        public int G { get; set; }
-        public int B { get; set; }
+        public byte R { get; set; }
+        public byte G { get; set; }
+        public byte B { get; set; }
 
         public ColorRGB()
         {
             R = G = B = 0;
         }
 
-        public ColorRGB(int r, int g, int b)
+        public ColorRGB(byte r, byte g, byte b)
 		{
 			R = r;
 			G = g;
@@ -22,9 +22,9 @@ namespace SimpleRayTracer
 
         public ColorRGB(float r, float g, float b)
         {
-            R = (int)(255 * r);
-            G = (int)(255 * g);
-            B = (int)(255 * b);
+            R = (byte)(255 * r);
+            G = (byte)(255 * g);
+            B = (byte)(255 * b);
         }
 
         public ColorRGB(Vector3 c) : this(c.X,c.Y,c.Z)
