@@ -7,6 +7,7 @@ namespace SimpleRayTracer
     {
         static async Task Main(string[] args)
         {
+            Console.WriteLine($"Start Simple Ray Tracer");
             Stopwatch sw = Stopwatch.StartNew();  
 
             // Definition of the comera with its position and screen size
@@ -15,12 +16,6 @@ namespace SimpleRayTracer
 
             sw.Stop(); 
             Console.WriteLine($"Init Scene : {sw.ElapsedMilliseconds} ms");
-
-            // Render the scene in a single ray tracing passe
-            sw = Stopwatch.StartNew();
-            ColorRGB[,] image = ComputeRayTracing(0,0,camera.Width,camera.Height,camera, scene);
-            sw.Stop();
-            Console.WriteLine($"Compute raytracing : {sw.ElapsedMilliseconds} ms");
 
             // Render the scene using multiple parallel ray tracing instances.
             sw = Stopwatch.StartNew();
@@ -43,7 +38,7 @@ namespace SimpleRayTracer
                     int y1 = tileY * maxY;
                     int x2 = (tileX + 1) * maxX;
                     int y2 = (tileY + 1) * maxY;
-                    tasks.Add(Task.Run(() => ComputeRayTracing( x1, y1, x2, y2, camera, scene)));
+                    tasks.Add(Task.Run(() => RayTracer.ComputeRayTracing( x1, y1, x2, y2, camera, scene)));
                 }
             }
             // Start the computations on all tiles and wait for their completion
@@ -54,13 +49,9 @@ namespace SimpleRayTracer
             sw.Stop();
             Console.WriteLine($"Compute // raytracing : {sw.ElapsedMilliseconds} ms");
 
-            sw = Stopwatch.StartNew();
-            // Write image in a file
-            WriteImageInFile(image, camera.Width, camera.Height, "output.ppm");
             // Write parallel processing image in a file
             WriteImageInFile(completeImage , camera.Width, camera.Height, "outputP.ppm");
-            sw.Stop();
-            Console.WriteLine($"Write 2 files : {sw.ElapsedMilliseconds} ms");
+            Console.WriteLine($"Stop Simple Ray Tracer");
         }
 
         static Scene InitScene()
@@ -79,26 +70,6 @@ namespace SimpleRayTracer
             scene.Lights.Add(new Vector3(5, 5, -6));
 
             return scene;
-        }
-
-        static ColorRGB[,] ComputeRayTracing(int minX, int minY, int maxX, int maxY, Camera camera, Scene scene)
-        {
-            ColorRGB[,] image = new ColorRGB[maxY - minY, maxX - minX];
-            // Traverses each pixel of the screen calculates a ray and
-            // casts the ray on the scene and saves the result in image.
-            for (int y = minY; y < maxY; y++)
-            {
-                for (int x = minX; x < maxX; x++)
-                {
-                    // Ray between the camera and the screen
-                    Ray ray = camera.GetRay(x, y);
-                    // resultut of the ray tracing for this pixel
-                    Vector3 color = scene.Trace(ray);    
-                    // stock the result in the image
-                    image[y - minY, x - minX] = new ColorRGB(color);
-                }
-            }
-            return image;
         }
 
         static ColorRGB[,] MergeImages(int maxTileX, int maxTileY,int maxX,int maxY,Camera camera, ColorRGB[][,] images)

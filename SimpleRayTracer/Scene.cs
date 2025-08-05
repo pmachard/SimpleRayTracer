@@ -3,7 +3,7 @@
 
 namespace SimpleRayTracer
 {
-    class Scene
+    public class Scene
     {
         private Vector3 BackgroundColor = new Vector3(0.2f, 0.7f, 1.0f);
         private int MaxDepth = 3;
