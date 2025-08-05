@@ -4,7 +4,7 @@ namespace SimpleRayTracer
 {
     class Sphere : IObject3D
     {
-        public Vector3 Center;
+        public Vector3 Center { get; set; }
         public float Radius;
         public Vector3 Color { get; set; }
         public float Reflectivity { get; set; }

@@ -4,10 +4,11 @@ namespace SimpleRayTracer
 {
     class Cylinder : IObject3D
     {
-        public Vector3 Center;
         public float Radius;
         public float Height;
         public Vector3 Axis;
+
+        public Vector3 Center { get; set; }
         public Vector3 Color { get; set; }
         public float Reflectivity { get; set; }
 

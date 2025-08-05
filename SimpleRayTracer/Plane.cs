@@ -4,14 +4,14 @@ namespace SimpleRayTracer
 {
     class Plane : IObject3D
     {
-        public Vector3 Origine { get; set; }
+        public Vector3 Center { get; set; }
         public Vector3 Normal { get; set; }
         public Vector3 Color { get; set; }
         public float Reflectivity { get; set; }
 
         public Plane(Vector3 point, Vector3 normal, Vector3 color, float reflectivity = 0f)
         {
-            Origine = point;
+            Center = point;
             Normal = Vector3.Normalize(normal);
             Color = color;
             Reflectivity = reflectivity;
@@ -22,7 +22,7 @@ namespace SimpleRayTracer
             float denom = Vector3.Dot(Normal, ray.Direction);
             if (Math.Abs(denom) > 1e-6)
             {
-                Vector3 p0l0 = Origine - ray.Origin;
+                Vector3 p0l0 = Center - ray.Origin;
                 t = Vector3.Dot(p0l0, Normal) / denom;
                 return t >= 0;
             }

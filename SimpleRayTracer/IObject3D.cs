@@ -4,6 +4,7 @@ namespace SimpleRayTracer
 {
 	public interface IObject3D
 	{
+        Vector3 Center { get; set; }
         Vector3 Color { get; set; }
         float Reflectivity { get; set; }
 
