@@ -2,16 +2,35 @@
   <MonoDevelop.Ide.ItemProperties.SimpleRayTracer PreferredExecutionTarget="MonoDevelop.Default" />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/pascalmachard/Documents/_Pascal/Projet/SimpleRayTracer/SimpleRayTracer/Program.cs" relfile="SimpleRayTracer/Program.cs" line="37" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="SimpleRayTracer/Plane.cs">
+    <Files>
+      <File FileName="SimpleRayTracer/Program.cs" Line="75" Column="1" />
+      <File FileName="SimpleRayTracer/Scene.cs" Line="86" Column="51" />
+      <File FileName="SimpleRayTracer/Camera.cs" Line="2" Column="1" />
+      <File FileName="SimpleRayTracer/ColorRGB.cs" Line="29" Column="1" />
+      <File FileName="SimpleRayTracer/Cylinder.cs" Line="8" Column="29" />
+      <File FileName="SimpleRayTracer/IObject3D.cs" Line="7" Column="37" />
+      <File FileName="SimpleRayTracer/Plane.cs" Line="34" Column="10" />
+      <File FileName="SimpleRayTracer/Ray.cs" Line="1" Column="1" />
+      <File FileName="SimpleRayTracer/Sphere.cs" Line="8" Column="1" />
+      <File FileName="SimpleRayTracer/RayTracer.cs" Line="11" Column="35" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="SimpleRayTracer" expanded="True">
-            <Node name="RayTracingSphereBis" selected="True" />
+            <Node name="Solution Items" expanded="True" />
           </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>resultats</Value>
         </State>
       </Pad>
     </Pads>

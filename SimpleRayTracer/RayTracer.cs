@@ -8,12 +8,13 @@ namespace SimpleRayTracer
 		public RayTracer()
 		{
         }
-        public static ColorRGB[,] ComputeRayTracing(int minX, int minY, int maxX, int maxY, Camera camera, Scene scene)
+        public static ColorRGB[,] ComputeRayTracingParallel(int minX, int minY, int maxX, int maxY, Camera camera, Scene scene)
         {
             ColorRGB[,] image = new ColorRGB[maxY - minY, maxX - minX];
             // Traverses each pixel of the screen calculates a ray and
             // casts the ray on the scene and saves the result in image.
-            for (int y = minY; y < maxY; y++)
+            // Perform ray tracing in parallel on each line of the image.
+            Parallel.For(minY, maxY, y =>
             {
                 for (int x = minX; x < maxX; x++)
                 {
@@ -24,7 +25,7 @@ namespace SimpleRayTracer
                     // stock the result in the image
                     image[y - minY, x - minX] = new ColorRGB(color);
                 }
-            }
+            });
             return image;
         }
     }
